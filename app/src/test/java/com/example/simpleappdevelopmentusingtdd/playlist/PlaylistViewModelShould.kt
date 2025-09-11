@@ -3,7 +3,7 @@ package com.example.simpleappdevelopmentusingtdd.playlist
 import com.example.simpleappdevelopmentusingtdd.utills.BaseUnitTest
 import com.example.simpleappdevelopmentusingtdd.presentation.Playlist
 import com.example.simpleappdevelopmentusingtdd.presentation.playlist.PlaylistViewmodel
-import com.example.simpleappdevelopmentusingtdd.presentation.repository.PlaylistRepository
+import com.example.simpleappdevelopmentusingtdd.data.repository.PlaylistRepository
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.first

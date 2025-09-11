@@ -1,4 +1,4 @@
-package com.example.simpleappdevelopmentusingtdd.presentation.repository
+package com.example.simpleappdevelopmentusingtdd.data.repository
 
 import com.example.simpleappdevelopmentusingtdd.presentation.Playlist
 import kotlinx.coroutines.flow.Flow
