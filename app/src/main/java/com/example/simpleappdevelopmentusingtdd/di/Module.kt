@@ -1,9 +1,11 @@
 package com.example.simpleappdevelopmentusingtdd.di
 
 import android.content.Context
+import com.example.simpleappdevelopmentusingtdd.data.PlayListApi
 import com.example.simpleappdevelopmentusingtdd.data.repository.PlaylistRepository
 import com.example.simpleappdevelopmentusingtdd.data.repository.PlaylistRepositoryImpl
-import com.example.simpleappdevelopmentusingtdd.data.source.PlayListService
+import com.example.simpleappdevelopmentusingtdd.data.source.PlayListDataSource
+import com.example.simpleappdevelopmentusingtdd.data.source.PlayListDataSourceImpl
 import com.example.simpleappdevelopmentusingtdd.data.util.Utill.createAppApiClient
 import dagger.Module
 import dagger.Provides
@@ -22,12 +24,19 @@ object RepositoryModule {
     @Singleton
     @Provides
     fun providePlaylistRepository(
-        @ApplicationContext context: Context,
-        api: PlayListService
+        playListDataSource: PlayListDataSource
     ): PlaylistRepository {
         return PlaylistRepositoryImpl(
-            api
+            playListDataSource
         )
+    }
+
+    @Singleton
+    @Provides
+    fun providePlaylistDataSource(
+        api: PlayListApi,
+    ): PlayListDataSource {
+        return PlayListDataSourceImpl(api)
     }
 
     @Singleton
@@ -44,10 +53,10 @@ object RepositoryModule {
 
     @Provides
     @Singleton
-    fun provideWMSApi(okHttpClient: OkHttpClient): PlayListService {
-        val baseUrl = ""
+    fun providePlayListApi(okHttpClient: OkHttpClient): PlayListApi {
+        val baseUrl = "http://10.0.2.2:3000/"
         val wMSRoleApiClient = createAppApiClient(baseUrl, okHttpClient)
-        return wMSRoleApiClient.create(PlayListService::class.java)
+        return wMSRoleApiClient.create(PlayListApi::class.java)
     }
 
 }

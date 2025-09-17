@@ -1,7 +1,7 @@
 package com.example.simpleappdevelopmentusingtdd.playlist
 
 import com.example.simpleappdevelopmentusingtdd.data.repository.PlaylistRepositoryImpl
-import com.example.simpleappdevelopmentusingtdd.data.source.PlayListService
+import com.example.simpleappdevelopmentusingtdd.data.source.PlayListDataSource
 import com.example.simpleappdevelopmentusingtdd.presentation.Playlist
 import com.example.simpleappdevelopmentusingtdd.utills.BaseUnitTest
 import kotlinx.coroutines.flow.first
@@ -16,10 +16,11 @@ import org.mockito.kotlin.whenever
 
 class PlaylistRepositoryShould : BaseUnitTest() {
 
-    private val service = mock<PlayListService>()
+    private val service = mock<PlayListDataSource>()
 
     val repository = PlaylistRepositoryImpl(service)
     private val playLists = mock<List<Playlist>>()
+    private val exception = RuntimeException("Something went wrong")
 
     @Test
     fun getPlaylistFromService() = runTest {

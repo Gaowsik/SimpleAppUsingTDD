@@ -8,6 +8,6 @@
     <fragment
         android:id="@+id/playlistsFragment"
         android:name="com.example.simpleappdevelopmentusingtdd.presentation.playlist.PlaylistsFragment"
-        android:label="fragment_playlists"
+        android:label="@string/label_playlists"
         tools:layout="@layout/fragment_playlists" />
 </navigation>

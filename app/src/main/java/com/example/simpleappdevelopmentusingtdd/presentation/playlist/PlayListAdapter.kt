@@ -3,6 +3,7 @@ package com.example.simpleappdevelopmentusingtdd.presentation.playlist
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.example.simpleappdevelopmentusingtdd.R
 import com.example.simpleappdevelopmentusingtdd.databinding.ItemPlaylistBinding
 import com.example.simpleappdevelopmentusingtdd.presentation.Playlist
 
@@ -32,7 +33,7 @@ class PlayListAdapter(var onItemClicked: (Playlist) -> Unit) :
         private fun bindDataToUi(playlist: Playlist) {
             mBinding.textPlaylistName.text = playlist.name
             mBinding.textPlayListCategory.text = playlist.category
-            mBinding.imageView.setImageResource(playlist.image)
+            mBinding.imageView.setImageResource(R.mipmap.ic_launcher)
         }
 
     }

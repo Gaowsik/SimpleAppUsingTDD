@@ -38,10 +38,10 @@ class PlaylistsFragment : Fragment() {
 
     private fun setUpObservers() {
         this.collectLatestLifeCycleFlow(viewModel.getAllPlaylist) { playList ->
-            if (playList!!.getOrNull() != null) {
-                setDataPlaylistAdapter(playList.getOrNull()!!)
-            } else {
-
+            if (playList != null) {
+                if (playList.getOrNull() != null) {
+                    setDataPlaylistAdapter(playList.getOrNull()!!)
+                }
             }
         }
     }
